@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import animate from "tailwindcss-animate";
 
 const config: Config = {
   content: [
@@ -8,12 +9,20 @@ const config: Config = {
   ],
   theme: {
     container: {
+      center: true,
+      screens: {
+        sm: "100%",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1400px",
+      },
       padding: {
-        DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
+        DEFAULT: "1rem",
+        sm: "2rem",
+        lg: "4rem",
+        xl: "5rem",
+        "2xl": "6rem",
       },
     },
     extend: {
@@ -86,13 +95,31 @@ const config: Config = {
             height: '0',
           },
         },
+        marquee: {
+          from: {
+            transform: "translateX(0)",
+          },
+          to: {
+            transform: "translateX(calc(-100% - var(--gap)))",
+          },
+        },
+        "marquee-vertical": {
+          from: {
+            transform: "translateY(0)",
+          },
+          to: {
+            transform: "translateY(calc(-100% - var(--gap)))",
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        marquee: "marquee 0.2s linear infinite",
+        "marquee-vertical": "marquee-vertical 0.2s linear infinite",
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [animate],
 };
 export default config;

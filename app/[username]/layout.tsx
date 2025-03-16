@@ -24,9 +24,10 @@ export async function generateMetadata({ params }: { params: { username: string 
   };
 }
 
-export default function UserLayout({ children }: { children: React.ReactNode }) {
+export default async function UserLayout({ children, params }: { children: React.ReactNode, params: { username: string }  }) {
+  const { username } = await params
   return <>
-    <Navbar1 />
+    <Navbar1 logoString={username} />
     {children}
   </>;
 }
