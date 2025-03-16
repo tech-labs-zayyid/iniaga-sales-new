@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { Navbar1 } from "@/components/navbar";
 
 export async function generateMetadata({ params }: { params: { username: string } }): Promise<Metadata> {
-  const { username } = await params
+  const { username } = params
   return {
     title: `${username} - Find Your Dream Car | Best Car Sales`,
     description: `${username} - Find the best car deals and professional consultation to get your dream vehicle today!`,
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { username: string 
 }
 
 export default async function UserLayout({ children, params }: { children: React.ReactNode, params: { username: string }  }) {
-  const { username } = await params
+  const { username } = params
   return <>
     <Navbar1 logoString={username} />
     {children}
