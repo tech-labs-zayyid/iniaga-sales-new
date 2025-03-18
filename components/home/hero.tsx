@@ -27,7 +27,7 @@ const Hero1 = ({
 }: any) => {
   return (
     <section className="py-14">
-      <div className="container mx-auto px-5 lg:px-0">
+      <div className="container max-w-5xl mx-auto px-5 lg:px-0">
         <div className="bg-accent rounded-xl py-8 px-6 sm:py-6">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-20">
             <div className="relative shrink-0 aspect-[3/4] max-w-[18rem] w-full bg-muted-foreground/20 rounded-xl"
