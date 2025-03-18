@@ -16,7 +16,7 @@ export default async function PageHome({ params }: any) {
     );
 
     if (response.data.status === "success") {
-      console.log(response.data.data)
+      // console.log(response.data.data)
       salesData = response.data.data;
     } else {
       error = "Gagal mengambil data.";

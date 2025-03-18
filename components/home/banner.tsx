@@ -28,7 +28,7 @@ export default function Banner({ banners }: { banners: any[] }) {
             height: imageDimensions.width && imageDimensions.height
               ? `${(imageDimensions.height / imageDimensions.width) * 100}vw` // Menjaga rasio gambar pada mobile
               : '300px', // default height jika gambar belum dimuat
-            maxHeight: '600px' // Membatasi tinggi maksimal pada desktop
+            maxHeight: '500px' // Membatasi tinggi maksimal pada desktop
           }}
         >
           {banners.length > 0 ? (
