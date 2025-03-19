@@ -1,5 +1,8 @@
 import { Metadata } from "next";
 import { Navbar1 } from "@/components/navbar";
+import axios from "axios";
+import React from "react";
+import { Footer } from "@/components/footer";
 
 export async function generateMetadata({ params }: { params: { username: string } }): Promise<Metadata> {
   const { username } = await params
@@ -24,10 +27,24 @@ export async function generateMetadata({ params }: { params: { username: string 
   };
 }
 
+async function getUserData(username: string) {
+  try {
+    const response = await axios.get(`https://apiniaga.zayyid.com/public/home/${username}`);
+    if (response.data.status === "success") {
+      return response.data.data;
+    }
+  } catch (err) {
+    console.error("Error fetching user data:", err);
+  }
+  return null;
+}
+
 export default async function UserLayout({ children, params }: { children: React.ReactNode, params: { username: string }  }) {
   const { username } = await params
+  const salesData = await getUserData(username);
   return <>
     <Navbar1 logoString={username} />
     {children}
+    <Footer data={salesData} />
   </>;
 }

@@ -7,15 +7,15 @@ import { useState } from "react";
 import { Mail, PhoneCall } from "lucide-react";
 import Link from "next/link";
 
-const ProductCard = ({ product, salesData }: any) => {
+const ProductsCard = ({ product, salesData }: any) => {
   const [currentImage, setCurrentImage] = useState(0);
-  const { product_name, price, city_name, province_name, best_product, images, slug } = product;
+  const { product_name, price, city_name, province_name, best_product, product_images, slug } = product;
 
   return (
-    <Card className="py-0 pb-4 shadow-lg rounded-2xl w-full max-w-sm">
+    <Card key={slug} className="py-0 pb-4 shadow-lg rounded-2xl w-full max-w-sm">
       <div className="relative w-full h-48">
         <Image
-          src={images[currentImage]?.image_url}
+          src={product_images[currentImage]?.image_url}
           alt={product_name}
           layout="fill"
           objectFit="cover"
@@ -24,9 +24,9 @@ const ProductCard = ({ product, salesData }: any) => {
       </div>
       <CardContent className="mt-2 space-y-2">
         <div className="flex gap-2 mt-2">
-          {images.map((img: any, index: number) => (
+          {product_images.map((img: any, index: number) => (
             <button
-              key={img.product_image_id}
+              key={index}
               onClick={() => setCurrentImage(index)}
               className={`w-10 h-10 border-2 rounded-lg overflow-hidden ${currentImage === index ? "border-primary" : "border-gray-300"}`}
             >
@@ -56,4 +56,4 @@ const ProductCard = ({ product, salesData }: any) => {
   );
 };
 
-export default ProductCard;
+export default ProductsCard;
