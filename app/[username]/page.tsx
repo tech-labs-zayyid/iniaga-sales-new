@@ -4,7 +4,7 @@ import { Hero1 } from '@/components/home/hero';
 import BestProduct from '@/components/home/best-product';
 import { Gallery4 } from '@/components/home/gallery';
 import Testimonial01 from '@/components/testimonial-03/testimonial-03';
-import { Footer } from '@/components/footer';
+
 export default async function PageHome({ params }: any) {
   const { username } = await params
   let salesData = null;
@@ -31,7 +31,6 @@ export default async function PageHome({ params }: any) {
       <BestProduct data={salesData} />
       <Gallery4 data={salesData} />
       <Testimonial01 data={salesData} />
-      <Footer data={salesData} />
     </div>
   )
 }

@@ -99,7 +99,7 @@ const Navbar1 = ({
     // },
     {
       title: "Product",
-      url: "/product",
+      url: "/products",
     },
     {
       title: "Gallery",
@@ -112,7 +112,7 @@ const Navbar1 = ({
   ],
 }: Navbar1Props) => {
   return (
-    <section className="py-4 fixed z-10 top-0 w-full bg-white mx-auto">
+    <section className="py-4 fixed z-10 top-0 w-full bg-white mx-auto drop-shadow-md">
       <div className="container lg:max-w-5xl mx-auto">
         {/* Desktop Menu */}
         <nav className="hidden justify-between lg:flex">
