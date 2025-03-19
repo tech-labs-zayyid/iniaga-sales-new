@@ -6,23 +6,24 @@ import { Footer } from "@/components/footer";
 
 export async function generateMetadata({ params }: { params: { username: string } }): Promise<Metadata> {
   const { username } = await params
+  const salesData = await getUserData(username);
   return {
-    title: `${username} - Find Your Dream Car | Best Car Sales`,
-    description: `${username} - Find the best car deals and professional consultation to get your dream vehicle today!`,
-    keywords: "car sales, buy car, best cars, luxury cars, new cars, used cars",
+    title: `${salesData.fullname}`,
+    description: `${salesData.desc}`,
+    keywords: `${salesData.desc}`,
     authors: [{ name: "iniaga.id" }],
     openGraph: {
-      title: `${username} - Find Your Dream Car | Best Car Sales`,
-      description: `${username} - Find the best car deals and professional consultation to get your dream vehicle today!`,
-      images: ["https://media.licdn.com/dms/image/v2/C5603AQHrVI9o3JZw4w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1592757080803?e=2147483647&v=beta&t=6cWMwY2THK1cR77yfFRa_cB69xhy3bOAow6D9n6D0yU"],
-      url: "https://yourwebsite.com",
+      title: `${salesData.fullname}`,
+      description: `${salesData.desc}`,
+      images: [`${salesData.url_image}`],
+      url: `${salesData.username}.iniaga.id`,
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${username} - Find Your Dream Car | Best Car Sales`,
-      description: `${username} - Find the best car deals and professional consultation to get your dream vehicle today!`,
-      images: ["https://media.licdn.com/dms/image/v2/C5603AQHrVI9o3JZw4w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1592757080803?e=2147483647&v=beta&t=6cWMwY2THK1cR77yfFRa_cB69xhy3bOAow6D9n6D0yU"],
+      title: `${salesData.fullname}`,
+      description: `${salesData.desc}`,
+      images: [`${salesData.url_image}`],
     },
   };
 }
