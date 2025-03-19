@@ -86,7 +86,7 @@ const Gallery4 = ({
           </CarouselContent>
         </Carousel>
         <div className="mt-8 flex justify-center gap-2">
-          {data?.gallery.map((_: any, index: any) => (
+          {data?.gallery?.map((_: any, index: any) => (
             <button
               key={index}
               className={`h-2 w-2 rounded-full transition-colors ${
