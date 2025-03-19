@@ -40,7 +40,7 @@ const ProductsCard = ({ product, salesData }: any) => {
         {/* <Button className="w-full mt-4 cursor-pointer">Tanya Produk</Button> */}
         <div className="w-full flex flex-col gap-2">
           <Button asChild className="w-full sm:w-auto">
-            <Link target="_blank" href={`https://wa.me/${salesData.phone_number}?text=Halo, Saya mau menanyakan produk ${product_name}`}>
+            <Link target="_blank" href={`https://wa.me/${salesData.phone_number}?text=${encodeURIComponent(`Halo, Saya mau menanyakan produk ${product_name}`)}`}>
               <PhoneCall className="size-4" />
               Tanya Produk
             </Link>
